@@ -1,0 +1,47 @@
+import { useEffect, useState } from "react";
+import { useParams,useNavigate } from "react-router-dom"
+import axios from "axios";
+export default function ProductDetails(){
+    // const [id,setId]=useState();
+    const item_id=useParams("id");
+    // setId(item_id);
+    console.log(item_id.id);
+    const [product,setProduct]=useState({});
+    // const navigate=useNavigate();
+    const getProduct=async()=>{
+        const response=await axios.get(`http://localhost:4000/listing/get/${item_id.id}`);
+        console.log(response);
+        if(response.data.success)
+        {
+            setProduct({...response.data.data});
+        }
+        console.log(product.owner)
+    }
+    useEffect(()=>{
+        getProduct();
+    },[]);
+    
+    return(
+        <div className="bg-gray-200 flex items-center justify-center min-h-[500px] gap-6">
+            <div className="rounded-3xl bg-white flex flex-wrap w-3/4 p-16 ">
+                <div className="w-1/2 p-5 pr-10">
+                    <div className="flex justify-between items-center">
+                        <div className="flex gap-2">
+                            <h2 className="font-bold text-3xl">{product.itemName}</h2>
+                            <h4 className="font-medium w-fit h-fit text-gray-100 text-sm px-2 border-1 border-gray-200 rounded-3xl bg-amber-500">{product.condition}</h4>
+                        </div>
+                        <h4 className="font-semibold text-xl">₹{product.price}</h4>
+                    </div>
+                  
+                        <h4 className="font-medium text-sm text-gray-600 my-1">{"--by " + product.owner?.name}</h4>                    
+                    <p className="font-medium text-sm text-gray-500 my-5">{product.description}</p>
+                    
+                </div>
+                <div className="w-1/2">
+                    <img src={`http://localhost:4000/uploads/${product.imageName}`} className="rounded-2xl"/>
+                </div>
+            </div>
+
+        </div>
+    )
+}
