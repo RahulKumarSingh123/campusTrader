@@ -30,8 +30,10 @@ export default function Navbar({setSearchResults})
                 </Link>
                 <button onClick={searchProduct}><Search className="bg-gray-100 rounded-r-lg h-9 w-9 py-2"/></button>
             </div>
-            <div>
-                
+            <div className="flex items-center gap-3">
+                    <Link to="products">
+                        <p className="font-medium text-sm text-gray-700">Products</p>
+                    </Link>
                 {token?<div className="flex items-center gap-1">
                         <Link to="mylisting">
                         <p className="font-medium text-sm text-gray-700">My Listing</p>

@@ -6,6 +6,7 @@ function authMiddleware(req, res, next) {
         const token = auth.split(" ")[1];
         console.log(req.file)
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+        console.log(decoded)
         if (decoded) {
             req.user = decoded;
             next();

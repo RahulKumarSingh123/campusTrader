@@ -31,7 +31,7 @@ export default function AddListing(){
         })
         if(response?.data?.success)
         {
-            navigate("/listing/my")
+            navigate("/mylisting")
         }
     }
     return(

@@ -11,7 +11,7 @@ export const AuthProvider=({children})=>{
         setName(data.name)
         setToken(data.token)
         localStorage.setItem("name", data.name)
-        localStorage.setItem("eventToken", data.token)
+        localStorage.setItem("token", data.token)
     }
 
     function logout()
@@ -19,7 +19,7 @@ export const AuthProvider=({children})=>{
         setName(null)
         setToken(null)
         localStorage.removeItem("name")
-        localStorage.removeItem("eventToken")
+        localStorage.removeItem("token")
         navigate("/products")
     }
     return(

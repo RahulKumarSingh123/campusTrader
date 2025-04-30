@@ -1,4 +1,5 @@
 const Listing = require("../models/listingSchema");
+const mongoose = require("mongoose")
 
 const addListingController = async(req, res) => {
     try {
@@ -56,7 +57,11 @@ const getAllListingController = async(req, res) => {
 const getMyListingController = async(req, res) => {
     try {
         const id = req.user._id;
-        const listings = await Listing.find({ owner: id }).populate("owner");
+        console.log(id);
+        const objId = new mongoose.Types.ObjectId(id);
+        console.log(objId);
+
+        const listings = await Listing.find({ owner: objId }).populate("owner");
         console.log(listings);
         if (listings) {
             res.status(200).json({
