@@ -1,7 +1,7 @@
-export default [{
+module.exports = [{
     files: ['**/*.js'],
     rules: {
-        semi: "error",
-        "no-unused-vars": "warn",
-    }
-}]
+        semi: 'error',
+        'no-unused-vars': 'warn',
+    },
+}, ];

@@ -1,23 +1,31 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const listingSchema = mongoose.Schema({
     itemName: {
         type: String,
-        required: true
+        required: true,
     },
     category: {
         type: String,
-        enum: ['Book', 'Engineering Equipment', 'Stationary', 'Electronics', 'Sports Equipments', 'Clothing', 'Other'],
-        required: true
+        enum: [
+            'Book',
+            'Engineering Equipment',
+            'Stationary',
+            'Electronics',
+            'Sports Equipments',
+            'Clothing',
+            'Other',
+        ],
+        required: true,
     },
     description: {
         type: String,
-        required: true
+        required: true,
     },
     condition: {
         type: String,
         enum: ['New', 'Good', 'Poor'],
-        required: true
+        required: true,
     },
     price: {
         type: Number,
@@ -29,16 +37,15 @@ const listingSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Available', 'Sold']
+        enum: ['Available', 'Sold'],
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
-    }
+        required: true,
+    },
 }, {
     timestamps: true,
-})
-
+}, );
 
 module.exports = mongoose.model('Listings', listingSchema);
