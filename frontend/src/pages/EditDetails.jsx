@@ -4,7 +4,7 @@ import axios from "axios";
 export default function EditDetails()
 {
     const [product,setProduct]=useState({});
-    const item_id=useParams("id");
+    const item_id=useParams();
     console.log(item_id.id);
 
     const getProduct=async()=>{
@@ -42,10 +42,8 @@ export default function EditDetails()
                 </div>
             </div>
             <div className="flex gap-2 justify-end">
-         
-                    <button className="border-amber-600 border-1 font-medium text-lg text-gray-700 px-2.5 py-1 rounded-lg ml-2" >Edit Image</button>
-                
-                <Link to="/"><button className="bg-amber-600 font-medium text-lg text-white px-2.5 py-1 rounded-lg mx-2" >Edit Details</button>
+                <Link to={`/editImage/${item_id.id}`}><button className="border-amber-600 border-1 font-medium text-lg text-gray-700 px-2.5 py-1 rounded-lg ml-2" >Edit Image</button></Link>
+                <Link to={`/addListing/${item_id.id}`}><button className="bg-amber-600 font-medium text-lg text-white px-2.5 py-1 rounded-lg mx-2">Edit Details</button>
                 </Link>
             </div>
         </div>

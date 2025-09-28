@@ -16,7 +16,7 @@ export default function Login(){
         })
         console.log(response.data);
         login({name:response.data.name,token:response.data.token})
-        navigate("/products");
+        navigate("/");
     }
     return(
         <div className="bg-gray-200 flex items-center justify-center min-h-[500px]">

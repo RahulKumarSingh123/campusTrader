@@ -39,7 +39,7 @@ export default function MyListing(){
         return(
             <>
                 <div className="w-full bg-gray-200 flex justify-end py-3 px-4">
-                    <Link to="/addListing">
+                    <Link to="/addListing/new">
                     <button className="bg-amber-600 font-medium text-lg text-white px-2.5 py-1 rounded-lg mx-2">Add Listing</button>
                     </Link>
                 </div>

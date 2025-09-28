@@ -1,0 +1,13 @@
+services:
+  backend:
+    build: ./backend 
+    ports:
+      - "4000:4000"
+    container_name: backend-campus
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    container_name: frontend-campus
+    depends_on:
+      - backend

@@ -138,9 +138,9 @@ const updateListingController = async(req, res) => {
 const updateImageController = async(req, res) => {
     try {
         const id = req.params.id;
-        const newData = req.body;
-        newData.imageName = req.file.filename;
-        const updatedListing = await Listing.findByIdAndUpdate(id, newData);
+        const updatedListing = await Listing.findByIdAndUpdate(id, {
+            imageName: req.file.filename,
+        });
 
         if (updatedListing) {
             res.status(201).json({

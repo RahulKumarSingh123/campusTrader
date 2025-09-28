@@ -6,6 +6,7 @@ export default function Products(){
     const getProducts=async ()=>
     {
         try{
+            // const response=await axios.get("http://localhost:4000/listing/getall");
             const response=await axios.get("http://localhost:4000/listing/getall");
             console.log(response);
             const items=response?.data?.data;
